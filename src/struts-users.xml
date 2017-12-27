@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="users" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<action name="login" class="com.kittyinnovation.structs.LoginAction"
+			method="execute">
+			<result name="success" type="redirect">/main.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		<action name="main_*" class="com.kittyinnovation.structs.MainAction"
+			method="{1}">
+			<result name="success">WEB-INF/pages/role.jsp</result>
+		</action>
+	</package>
+</struts>
