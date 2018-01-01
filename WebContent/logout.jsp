@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>role</title>
+<title>退出</title>
 </head>
 <body>
-<span>${id}</span>
-消息：${message}
-
-生日：${birthday}
+<%
+request.getSession().removeAttribute("ses");
+%>
+<%=request.getSession().getAttribute("ses") %>
+用户已退出...
 </body>
 </html>

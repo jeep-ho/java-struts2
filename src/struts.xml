@@ -13,7 +13,7 @@
 <!--自动重新加载配置文件，修改后不用重新发布，刷新即可-->
 <constant name="struts.configuration.xmlreload" value="true"></constant>
 <!--开发模式,启用后可以打印出更详细错误信息-->
-<constant name="struts.devMode" value="true"></constant>
+<constant name="struts.devMode" value="flase"></constant>
 <!--默认视图主题-->
 <!--  <constant name="struts.ui.theme" value="simple"></constant>-->
 <!--Spring集成时负责aciton创建 -->
@@ -21,7 +21,7 @@
 <!--是否支持动态方法调用,false-禁止-->
 <!--<constant name="struts.enable.DynamicMethodInvocation" value="true" /> --> 
 <!--上传文件的大小限制-->
-<!--<constant name="struts.mutilpart.maxSize" value="10701096"></constant>-->
+<constant name="struts.mutilpart.maxSize" value="10701096"></constant>
 <include file="struts-users.xml"></include>
 <include file="struts-orle.xml"></include>
 <include file="struts-rights.xml"></include>

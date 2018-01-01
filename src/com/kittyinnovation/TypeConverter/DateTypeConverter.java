@@ -11,16 +11,16 @@ public class DateTypeConverter extends DefaultTypeConverter {
 
 	@Override
 	public Object convertValue(Map<String, Object> context, Object value, Class toType) {
-		SimpleDateFormat simpleDateFormat=new  SimpleDateFormat("yyyyMMdd");
-		if(toType==Date.class) {
-			String[] params=(String[])value;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+		if (toType == Date.class) {
+			String[] params = (String[]) value;
 			try {
 				return simpleDateFormat.parse(params[0]);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
-		}else if(toType==String.class) {
-			Date date=(Date)value;
+		} else if (toType == String.class) {
+			Date date = (Date) value;
 			return simpleDateFormat.format(date);
 		}
 		return null;

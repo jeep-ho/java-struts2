@@ -1,7 +1,16 @@
 package com.kittyinnovation.structs;
 
+import java.util.Date;
+
 public class MainAction {
 
+	public Date birthday;
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 	public int Id;
 	public int getId() {
 		return Id;

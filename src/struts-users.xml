@@ -6,22 +6,30 @@
 <struts>
 	<package name="users" namespace="/" extends="struts-default">
 		<interceptors>
-			<interceptor-stack name="crudStack">
-				<interceptor-ref name="checkbox" />
-				<interceptor-ref name="params" />
-				<interceptor-ref name="staticParams" />
+		<interceptor name="permissionInterceptor" class="com.kittyinnovation.interceptor.permissionInterceptor"></interceptor>
+			<interceptor-stack name="permissionInterceptorStack">
 				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="permissionInterceptor"/>
 			</interceptor-stack>
 		</interceptors>
-
+		<default-interceptor-ref name="permissionInterceptorStack"></default-interceptor-ref>
+		<global-results>
+			<result name="message">/WEB-INF/message.jsp</result>
+		</global-results>
 		<action name="login" class="com.kittyinnovation.structs.LoginAction"
 			method="execute">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success" type="redirect">/main.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		<action name="register_*" class="com.kittyinnovation.structs.UserAction"
+			method="{1}">
+			<result name="input">/user.jsp</result>
 			<result name="error" type="redirect">/error.jsp</result>
 		</action>
 		<action name="main_*" class="com.kittyinnovation.structs.MainAction"
 			method="{1}">
-			<result name="success">WEB-INF/pages/role.jsp</result>
+			<result name="success">/user.jsp</result>
 		</action>
 	</package>
 </struts>
